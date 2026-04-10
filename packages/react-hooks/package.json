@@ -2,7 +2,7 @@
     "author": "DorianLatchague",
     "dependencies": {
         "@fluentui/react-hooks": "^8.8.0",
-        "@gray/utilities": "workspace:*",
+        "@cantus/utilities": "workspace:*",
         "lodash": "4.17.21"
     },
     "description": "",
@@ -30,7 +30,7 @@
     "license": "ISC",
     "main": "lib/index.js",
     "module": "lib/index.js",
-    "name": "@gray/react-hooks",
+    "name": "@cantus/react-hooks",
     "peerDependencies": {
         "@types/react": ">=16.14.0",
         "react": ">=16.14.0"

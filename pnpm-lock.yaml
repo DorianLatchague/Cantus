@@ -110,7 +110,7 @@ importers:
       '@fluentui/react-hooks':
         specifier: ^8.8.0
         version: 8.8.16(@types/react@16.14.0)(react@16.14.0)
-      '@gray/utilities':
+      '@cantus/utilities':
         specifier: workspace:*
         version: link:../utilities
       lodash:

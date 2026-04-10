@@ -20,7 +20,7 @@
     "license": "ISC",
     "main": "lib/index.js",
     "module": "lib/index.js",
-    "name": "@gray/template",
+    "name": "@cantus/template",
     "peerDependencies": {},
     "scripts": {
         "build": "pnpm run clean && vite build",

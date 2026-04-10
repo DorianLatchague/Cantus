@@ -34,13 +34,13 @@
     "keywords": [],
     "license": "ISC",
     "main": "index.js",
-    "name": "@gray/root",
+    "name": "@cantus/root",
     "scripts": {
         "build": "pnpm -r run build",
         "clean": "pnpm -r --no-sort --no-bail run clean",
         "lint": "pnpm -r --no-sort --no-bail run lint",
         "lint:fix": "pnpm -r --no-sort --no-bail run lint:fix",
-        "new-package": "gray new package",
+        "new-package": "cantus new package",
         "test": "pnpm -r --no-sort --no-bail run test"
     },
     "version": "1.0.0"

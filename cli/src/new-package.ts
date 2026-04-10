@@ -21,7 +21,7 @@ export async function newPackage() {
 
     const templatePackagePath = path.resolve(PACKAGES_FOLDER, "template");
     const newPackagePath = path.resolve(PACKAGES_FOLDER, name);
-    const packageName = `@gray/${name}`;
+    const packageName = `@cantus/${name}`;
 
     mkdirSync(newPackagePath);
     mkdirSync(path.resolve(newPackagePath, "src"));
@@ -30,5 +30,5 @@ export async function newPackage() {
     copySync(path.resolve(templatePackagePath, "tsconfig.json"), path.resolve(newPackagePath, "tsconfig.json"));
 
     const packageJson = readFileSync(path.resolve(templatePackagePath, "package.json"), "utf-8");
-    writeFileSync(path.resolve(newPackagePath, "package.json"), packageJson.replace("@gray/template", packageName));
+    writeFileSync(path.resolve(newPackagePath, "package.json"), packageJson.replace("@cantus/template", packageName));
 }

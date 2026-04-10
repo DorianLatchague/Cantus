@@ -1,7 +1,7 @@
 import { useConst } from "@fluentui/react-hooks";
 import { clone, findLastIndex, isEmpty, remove } from "lodash";
 import * as React from "react";
-import { removeFirst, replaceInArray, upsertToEnd, upsertToStart } from "@gray/utilities";
+import { removeFirst, replaceInArray, upsertToEnd, upsertToStart } from "@cantus/utilities";
 
 /** Updater callbacks returned by `useArrayState` */
 export interface ArrayState<T> {

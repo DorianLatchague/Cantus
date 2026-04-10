@@ -1,7 +1,7 @@
 import { useConst } from "@fluentui/react-hooks";
 import { useState } from "react";
-import type { DeepPartial } from "@gray/utilities";
-import { patch as grayPatch } from "@gray/utilities";
+import type { DeepPartial } from "@cantus/utilities";
+import { patch as cantusPatch } from "@cantus/utilities";
 
 /**
  * A hook to update the Object states with [DeepPartial](../Utils/Object.ts)
@@ -17,7 +17,7 @@ export function useObjectState<T extends object>(initialState: T | (() => T)): [
         useConst(
             () =>
                 (patch: DeepPartial<T> | ((oldObject: T) => DeepPartial<T>)): void =>
-                    setState((oldVal) => grayPatch(oldVal, patch)),
+                    setState((oldVal) => cantusPatch(oldVal, patch)),
         ),
     ];
 }

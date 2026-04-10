@@ -1,7 +1,7 @@
 {
     "author": "DorianLatchague",
     "bin": {
-        "gray": "bin/cli.js"
+        "cantus": "bin/cli.js"
     },
     "dependencies": {
         "@inquirer/prompts": "^5.3.7",

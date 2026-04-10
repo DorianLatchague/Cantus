@@ -27,7 +27,7 @@
     "license": "ISC",
     "main": "lib/index.js",
     "module": "lib/index.js",
-    "name": "@gray/utilities",
+    "name": "@cantus/utilities",
     "peerDependencies": {},
     "scripts": {
         "build": "pnpm run clean && vite build",
