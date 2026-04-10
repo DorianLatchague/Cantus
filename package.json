@@ -37,10 +37,11 @@
     "name": "@gray/root",
     "scripts": {
         "build": "pnpm -r run build",
-        "test": "pnpm -r run test",
-        "lint": "pnpm -r run lint",
-        "lint:fix": "pnpm -r run lint:fix",
-        "new-package": "gray new package"
+        "clean": "pnpm -r --no-sort --no-bail run clean",
+        "lint": "pnpm -r --no-sort --no-bail run lint",
+        "lint:fix": "pnpm -r --no-sort --no-bail run lint:fix",
+        "new-package": "gray new package",
+        "test": "pnpm -r --no-sort --no-bail run test"
     },
     "version": "1.0.0"
 }
