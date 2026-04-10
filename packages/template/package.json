@@ -1,36 +1,36 @@
 {
-    "name": "@gray/template",
-    "version": "0.0.1",
+    "author": "DorianLatchague",
+    "dependencies": {
+        "@swc/helpers": "^0.5.12"
+    },
     "description": "",
-    "main": "lib/index.js",
-    "module": "lib/index.js",
-    "types": "lib/index.d.ts",
-    "files": [
-        "*.md",
-        "dist/**/*.d.ts",
-        "lib/",
-        "lib-commonjs/"
-    ],
     "exports": {
         ".": {
-            "types": "./dist/index.d.ts",
-            "node": "./lib-commonjs/index.js",
             "import": "./lib/index.js",
-            "require": "./lib-commonjs/index.js"
+            "node": "./lib-commonjs/index.js",
+            "require": "./lib-commonjs/index.js",
+            "types": "./dist/index.d.ts"
         },
         "./package.json": "./package.json"
     },
+    "files": [
+        "*.md",
+        "dist/**/*.d.ts",
+        "lib-commonjs/",
+        "lib/"
+    ],
+    "keywords": [],
+    "license": "ISC",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "name": "@gray/template",
     "scripts": {
         "build": "pnpm run clean && pnpm run \"/^build:.*/\"",
         "build:cjs": "swc src/**/*.ts -C module.type=commonjs -d lib-commonjs --config-file ../../.swcrc --sync --strip-leading-paths",
-        "build:dts": "tsc src/**/*.ts --baseUrl src/ --outDir dist/ --declaration --emitDeclarationOnly --skipLibCheck --jsx react-jsx --target es2019 --moduleResolution bundler",
+        "build:dts": "tsc --project tsconfig.json",
         "build:esm": "swc src/**/*.ts -d lib --config-file ../../.swcrc --sync --strip-leading-paths",
         "clean": "rm -rf lib lib-commonjs dist"
     },
-    "keywords": [],
-    "author": "DorianLatchague",
-    "license": "ISC",
-    "dependencies": {
-        "@swc/helpers": "^0.5.12"
-    }
+    "types": "lib/index.d.ts",
+    "version": "0.0.1"
 }

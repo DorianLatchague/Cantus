@@ -23,7 +23,7 @@
     "scripts": {
         "build": "pnpm run clean && pnpm run \"/^build:.*/\"",
         "build:cjs": "swc src/**/*.ts -C module.type=commonjs -d lib-commonjs --config-file ../../.swcrc --sync --strip-leading-paths",
-        "build:dts": "tsc src/**/*.ts --baseUrl src/ --outDir dist/ --declaration --emitDeclarationOnly --skipLibCheck --jsx react-jsx --target es2019 --moduleResolution bundler",
+        "build:dts": "tsc --project tsconfig.dts.json",
         "build:esm": "swc src/**/*.ts -d lib --config-file ../../.swcrc --sync --strip-leading-paths",
         "clean": "rm -rf lib lib-commonjs dist"
     },
