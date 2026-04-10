@@ -1,0 +1,170 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "airbnb/hooks",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+        "plugin:import/typescript",
+        "plugin:jsx-a11y/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:react/jsx-runtime",
+        "plugin:react/recommended",
+        "plugin:storybook/recommended",
+        "prettier"
+    ],
+    "overrides": [
+        {
+            "env": {
+                "jest": true
+            },
+            "extends": [
+                "airbnb",
+                "airbnb-typescript",
+                "airbnb/hooks",
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended-type-checked",
+                "plugin:@typescript-eslint/stylistic-type-checked",
+                "plugin:import/typescript",
+                "plugin:jest/recommended",
+                "plugin:jsx-a11y/recommended",
+                "plugin:react-hooks/recommended",
+                "plugin:react/jsx-runtime",
+                "plugin:react/recommended",
+                "prettier"
+            ],
+            "files": ["**/*.test.ts", "**/*.test.tsx", "__mocks__/**/*"],
+            "parserOptions": {
+                "project": "tsconfig.jest.json"
+            },
+            "rules": {
+                "@typescript-eslint/consistent-type-exports": "error",
+                "@typescript-eslint/consistent-type-imports": "error",
+                "@typescript-eslint/no-empty-interface": [
+                    {
+                        "allowSingleExtends": true
+                    },
+                    "error"
+                ],
+                "@typescript-eslint/no-import-type-side-effects": "error",
+                "@typescript-eslint/no-unused-vars": [
+                    {
+                        "argsIgnorePattern": "^_"
+                    },
+                    "error"
+                ],
+                "@typescript-eslint/no-use-before-define": "off",
+                "deprecation/deprecation": "warn",
+                "import/extensions": "off",
+                "import/prefer-default-export": "off",
+                "no-console": "error",
+                "no-debugger": "error",
+                "no-invalid-regexp": "error",
+                "no-param-reassign": "error",
+                "no-relative-import-paths/no-relative-import-paths": "off",
+                "no-restricted-imports": [
+                    {
+                        "patterns": [
+                            {
+                                "group": ["@fluentui/*/", "@fluentui/*/*"],
+                                "message": "Please use the root export instead, e.g \"@fluentui/react\" instead of \"@fluentui/react/lib/Stack\""
+                            }
+                        ]
+                    },
+                    "error"
+                ],
+                "react-hooks/exhaustive-deps": "error",
+                "react-hooks/rules-of-hooks": "error",
+                "react/jsx-no-constructed-context-values": "off",
+                "react/jsx-no-useless-fragment": "off",
+                "react/jsx-props-no-spreading": "off",
+                "react/no-unstable-nested-components": [
+                    {
+                        "allowAsProps": true
+                    },
+                    "error"
+                ],
+                "react/require-default-props": "off"
+            }
+        },
+        {
+            "env": {
+                "node": true
+            },
+            "files": ["webpack.config.ts"],
+            "parserOptions": {
+                "project": "tsconfig.node.json"
+            },
+            "rules": {
+                "import/extensions": "off",
+                "import/no-extraneous-dependencies": [
+                    {
+                        "devDependencies": true
+                    },
+                    "error"
+                ],
+                "no-relative-import-paths/no-relative-import-paths": "off"
+            }
+        }
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "project": "tsconfig.json",
+        "sourceType": "module"
+    },
+    "plugins": ["@typescript-eslint", "deprecation", "no-relative-import-paths", "react", "react-hooks"],
+    "rules": {
+        "@typescript-eslint/consistent-type-exports": "error",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-empty-interface": [
+            {
+                "allowSingleExtends": true
+            },
+            "error"
+        ],
+        "@typescript-eslint/no-import-type-side-effects": "error",
+        "@typescript-eslint/no-unused-vars": [
+            {
+                "argsIgnorePattern": "^_"
+            },
+            "error"
+        ],
+        "@typescript-eslint/no-use-before-define": "off",
+        "deprecation/deprecation": "warn",
+        "import/extensions": "off",
+        "import/prefer-default-export": "off",
+        "no-console": "error",
+        "no-debugger": "error",
+        "no-invalid-regexp": "error",
+        "no-param-reassign": "error",
+        "react-hooks/exhaustive-deps": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react/jsx-no-constructed-context-values": "off",
+        "react/jsx-no-useless-fragment": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/no-unstable-nested-components": [
+            {
+                "allowAsProps": true
+            },
+            "error"
+        ],
+        "react/require-default-props": "off"
+    },
+    "settings": {
+        "jsx-a11y": {
+            "polymorphicPropName": "as"
+        },
+        "react": {
+            "version": "detect"
+        }
+    }
+}

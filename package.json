@@ -1,0 +1,41 @@
+{
+    "author": "DorianLatchague",
+    "description": "",
+    "devDependencies": {
+        "@changesets/cli": "^2.27.7",
+        "@swc/cli": "^0.4.0",
+        "@swc/core": "^1.7.5",
+        "@typescript-eslint/eslint-plugin": "^7.18.0",
+        "cli": "workspace:*",
+        "eslint": "^8.57.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-airbnb-typescript": "^18.0.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-deprecation": "^3.0.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-jest": "^28.6.0",
+        "eslint-plugin-jsx-a11y": "^6.9.0",
+        "eslint-plugin-no-relative-import-paths": "^1.5.5",
+        "eslint-plugin-react": "^7.35.0",
+        "eslint-plugin-react-hooks": "^4.6.2",
+        "eslint-plugin-storybook": "^0.8.0",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.6.3",
+        "typescript": "^5.5.4"
+    },
+    "engines": {
+        "node": ">=24.0.0",
+        "pnpm": ">=10.0.0"
+    },
+    "keywords": [],
+    "license": "ISC",
+    "main": "index.js",
+    "name": "@gray/root",
+    "scripts": {
+        "build": "pnpm -r run build",
+        "lint": "eslint ./**/*.ts ./**/*.tsx --ignore-pattern node_modules",
+        "lint:fix": "eslint ./**/*.ts ./**/*.tsx --fix --ignore-pattern node_modules",
+        "new-package": "gray new package"
+    },
+    "version": "1.0.0"
+}

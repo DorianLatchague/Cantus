@@ -1,0 +1,11 @@
+# dependencies
+node_modules/
+
+# build outputs
+lib/
+lib-commonjs/
+dist/
+bin/
+
+# tsc output
+tsconfig.tsbuildinfo

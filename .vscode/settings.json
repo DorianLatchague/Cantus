@@ -1,0 +1,17 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "always",
+        // fix all will take care of this for us
+        "source.organizeImports": "never",
+        "source.removeUnusedImports": "always",
+        // fix all will take care of this for us
+        "source.sortImports": "never",
+        "source.sortMembers": "never"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.printWidth": 180,
+    "prettier.singleQuote": false,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "all"
+}
