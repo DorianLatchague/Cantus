@@ -3,7 +3,6 @@
     "dependencies": {
         "@fluentui/react-hooks": "^8.8.0",
         "@gray/utilities": "workspace:*",
-        "@swc/helpers": "^0.5.12",
         "lodash": "4.17.21"
     },
     "description": "",
@@ -14,10 +13,10 @@
     },
     "exports": {
         ".": {
+            "types": "./dist/index.d.ts",
             "import": "./lib/index.js",
             "node": "./lib-commonjs/index.js",
-            "require": "./lib-commonjs/index.js",
-            "types": "./dist/index.d.ts"
+            "require": "./lib-commonjs/index.js"
         },
         "./package.json": "./package.json"
     },
@@ -37,12 +36,9 @@
         "react": ">=16.14.0"
     },
     "scripts": {
-        "build": "pnpm run clean && pnpm run \"/^build:.*/\"",
-        "build:cjs": "swc src/**/*.ts -C module.type=commonjs -d lib-commonjs --config-file ../../.swcrc --sync --strip-leading-paths",
-        "build:dts": "tsc --project tsconfig.json",
-        "build:esm": "swc src/**/*.ts -d lib --config-file ../../.swcrc --sync --strip-leading-paths",
+        "build": "pnpm run clean && vite build",
         "clean": "rm -rf lib lib-commonjs dist"
     },
-    "types": "lib/index.d.ts",
+    "types": "dist/index.d.ts",
     "version": "0.0.1"
 }

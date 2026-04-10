@@ -26,6 +26,8 @@ export async function newPackage() {
     mkdirSync(newPackagePath);
     mkdirSync(path.resolve(newPackagePath, "src"));
     copySync(path.resolve(templatePackagePath, "src"), path.resolve(newPackagePath, "src"));
+    copySync(path.resolve(templatePackagePath, "vite.config.ts"), path.resolve(newPackagePath, "vite.config.ts"));
+    copySync(path.resolve(templatePackagePath, "tsconfig.json"), path.resolve(newPackagePath, "tsconfig.json"));
 
     const packageJson = readFileSync(path.resolve(templatePackagePath, "package.json"), "utf-8");
     writeFileSync(path.resolve(newPackagePath, "package.json"), packageJson.replace("@gray/template", packageName));

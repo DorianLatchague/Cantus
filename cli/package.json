@@ -1,44 +1,28 @@
 {
-    "name": "cli",
-    "version": "0.0.1",
-    "description": "",
-    "main": "lib/index.js",
-    "module": "lib/index.js",
-    "types": "lib/index.d.ts",
-    "files": [
-        "*.md",
-        "dist/**/*.d.ts",
-        "lib/",
-        "lib-commonjs/"
-    ],
+    "author": "DorianLatchague",
     "bin": {
         "gray": "bin/cli.js"
     },
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "node": "./lib-commonjs/index.js",
-            "import": "./lib/index.js",
-            "require": "./lib-commonjs/index.js"
-        },
-        "./package.json": "./package.json"
-    },
-    "scripts": {
-        "build": "pnpm run clean && pnpm run build:cjs",
-        "build:cjs": "swc src/**/*.ts -C module.type=commonjs -d bin --config-file ../.swcrc --sync --strip-leading-paths",
-        "clean": "rm -rf bin"
-    },
-    "keywords": [],
-    "author": "DorianLatchague",
-    "license": "ISC",
     "dependencies": {
         "@inquirer/prompts": "^5.3.7",
-        "@swc/helpers": "^0.5.12",
         "@types/fs-extra": "^11.0.4",
         "@types/lodash": "4.14.157",
         "@types/yargs": "^17.0.32",
         "fs-extra": "^11.2.0",
         "lodash": "4.17.21",
         "yargs": "^17.7.2"
-    }
+    },
+    "description": "",
+    "files": [
+        "*.md",
+        "bin/"
+    ],
+    "keywords": [],
+    "license": "ISC",
+    "name": "cli",
+    "scripts": {
+        "build": "vite build",
+        "clean": "rm -rf bin"
+    },
+    "version": "0.0.1"
 }

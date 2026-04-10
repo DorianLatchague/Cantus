@@ -20,9 +20,6 @@
     ],
     "overrides": [
         {
-            "env": {
-                "jest": true
-            },
             "extends": [
                 "airbnb",
                 "airbnb-typescript",
@@ -31,7 +28,7 @@
                 "plugin:@typescript-eslint/recommended-type-checked",
                 "plugin:@typescript-eslint/stylistic-type-checked",
                 "plugin:import/typescript",
-                "plugin:jest/recommended",
+                "plugin:@vitest/recommended",
                 "plugin:jsx-a11y/recommended",
                 "plugin:react-hooks/recommended",
                 "plugin:react/jsx-runtime",

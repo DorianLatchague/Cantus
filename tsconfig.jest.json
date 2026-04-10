@@ -1,7 +1,0 @@
-{
-    "compilerOptions": {
-        "verbatimModuleSyntax": false
-    },
-    "extends": "./tsconfig.json",
-    "include": ["**/*.test.ts", "**/*.test.tsx"]
-}

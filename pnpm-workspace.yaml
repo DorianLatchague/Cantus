@@ -1,6 +1,5 @@
 packages:
-  - "./packages/*"
-  - "./cli"
+    - "./packages/*"
+    - "./cli"
 allowBuilds:
-  '@swc/core': true
-  esbuild: true
+    esbuild: true
