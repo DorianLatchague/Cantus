@@ -32,6 +32,8 @@
     "scripts": {
         "build": "pnpm run clean && vite build",
         "clean": "rm -rf lib lib-commonjs dist",
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix",
         "test": "vitest run --passWithNoTests"
     },
     "types": "dist/index.d.ts",

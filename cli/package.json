@@ -23,6 +23,8 @@
     "scripts": {
         "build": "vite build",
         "clean": "rm -rf bin",
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix",
         "test": "vitest run --passWithNoTests"
     },
     "version": "0.0.1"
