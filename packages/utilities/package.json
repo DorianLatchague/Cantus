@@ -31,7 +31,8 @@
     "peerDependencies": {},
     "scripts": {
         "build": "pnpm run clean && vite build",
-        "clean": "rm -rf lib lib-commonjs dist"
+        "clean": "rm -rf lib lib-commonjs dist",
+        "test": "vitest run --passWithNoTests"
     },
     "types": "dist/index.d.ts",
     "version": "0.0.1"

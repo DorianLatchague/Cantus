@@ -41,10 +41,10 @@ import { cloneDeepWith, isBuffer, isTypedArray, mergeWith } from "lodash";
 export type DotNestedKeyofValue<T, V, D extends number = 5> = D extends [never]
     ? never
     : T extends object
-    ? {
-          [K in keyof T]-?: K extends string | number ? (T[K] extends V ? `${K}` : never) | (DotNestedKeyofValue<T[K], V, Prev[D]> extends infer R ? Join<K, R> : never) : never;
-      }[keyof T]
-    : never;
+      ? {
+            [K in keyof T]-?: K extends string | number ? (T[K] extends V ? `${K}` : never) | (DotNestedKeyofValue<T[K], V, Prev[D]> extends infer R ? Join<K, R> : never) : never;
+        }[keyof T]
+      : never;
 
 /**
  * DotNestedKeyof<T> defines a type that represents the keys of T, including nested ones.
@@ -98,15 +98,15 @@ export type DeepPartial<T> = T extends object
     : T;
 
 /**
- * A function to clone an object and apply some updates to some of its nested properties.
+ * A function to clone an object and apply some patches to some of its nested properties.
  * Particularly useful when working with objects in React states.
  *
  * @template T the type of the object
- * @param {T} originalObject The original object that will be cloned and updated
- * @param {...(DeepPartial<T> | ((originalObject: T) => DeepPartial<T>))[]} updates The DeepPartial updates containing the nested properties to replace in the `originalObject`
- * @returns {T} A new object combining the `originalObject` with the nested properties of the `updates`
+ * @param {T} originalObject The original object that will be cloned and patched
+ * @param {...(DeepPartial<T> | ((originalObject: T) => DeepPartial<T>))[]} patches The DeepPartial patches containing the nested properties to replace in the `originalObject`
+ * @returns {T} A new object combining the `originalObject` with the nested properties of the `patches`
  */
-export function cloneAndPatch<T extends object>(originalObject: T, ...updates: (DeepPartial<T> | ((originalObject: T) => DeepPartial<T>))[]): T {
+export function patch<T extends object>(originalObject: T, ...patches: (DeepPartial<T> | ((originalObject: T) => DeepPartial<T>))[]): T {
     const newObject: T = cloneDeepWith(originalObject, (val: T) => {
         if (isArrayLike(val)) {
             return val;
@@ -114,7 +114,7 @@ export function cloneAndPatch<T extends object>(originalObject: T, ...updates: (
         return undefined;
     }) as T;
 
-    return updates.reduce(
+    return patches.reduce(
         (finalObject, update) =>
             mergeWith(newObject, typeof update === "function" ? update(finalObject) : update, (_: never, newVal: T) => {
                 if (newVal === null) {

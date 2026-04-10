@@ -22,7 +22,8 @@
     "name": "cli",
     "scripts": {
         "build": "vite build",
-        "clean": "rm -rf bin"
+        "clean": "rm -rf bin",
+        "test": "vitest run --passWithNoTests"
     },
     "version": "0.0.1"
 }
