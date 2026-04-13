@@ -74,6 +74,14 @@ export default defineConfig(
         },
     },
 
+    // CLI overrides
+    {
+        files: ["cli/**/*.ts"],
+        rules: {
+            "no-console": "off",
+        },
+    },
+
     // Config file overrides
     {
         files: ["**/*.config.ts", "**/*.config.mts"],
