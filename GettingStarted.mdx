@@ -1,0 +1,150 @@
+import { Meta, Subtitle, Source } from "@storybook/addon-docs/blocks";
+
+<Meta title="Getting Started" />
+
+# Getting Started
+
+<Subtitle>Everything you need to set up and start developing in the Cantus monorepo.</Subtitle>
+
+---
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- **Node.js 24+** — see `.nvmrc` for the exact version (`v24.14.1`)
+- **pnpm 10+** — the workspace manager used throughout the repo
+
+If you use [nvm](https://github.com/nvm-sh/nvm), run `nvm use` at the repo root to switch to the correct Node version.
+
+---
+
+## Initial Setup
+
+Clone the repo and install dependencies:
+
+<Source
+    language="bash"
+    dark
+    code={`git clone https://github.com/DorianLatchague/Cantus.git && cd Cantus
+pnpm install`}
+/>
+
+---
+
+## Repository Structure
+
+<Source
+    language="text"
+    dark
+    code={`Cantus/
+├── .github/workflows/   # CI pipeline
+├── .storybook/          # Storybook configuration
+├── cli/                 # Cantus CLI tool (scaffolding)
+├── packages/
+│   ├── template/        # Blueprint for new packages
+│   └── utilities/       # @cantus/utilities — shared helpers
+├── eslint.config.mjs    # ESLint flat config (Airbnb + TypeScript)
+├── tsconfig.json        # Root TypeScript config
+├── pnpm-workspace.yaml  # Workspace definition
+└── package.json         # Root scripts`}
+/>
+
+Every directory listed in `pnpm-workspace.yaml` (`packages/*` and `cli/`) is a workspace package with its own `package.json`.
+
+---
+
+## Development Workflow
+
+All root-level scripts delegate to workspace packages via `pnpm -r`.
+
+### Build
+
+<Source language="bash" dark code="pnpm run build" />
+
+Builds every package with **Vite** (library mode). Each package produces:
+
+- **ESM** → `lib/`
+- **CommonJS** → `lib-commonjs/`
+- **Type declarations** → `dist/*.d.ts` (via `vite-plugin-dts`)
+
+### Test
+
+<Source language="bash" dark code="pnpm run test" />
+
+Runs **Vitest** across all workspace packages.
+
+### Lint
+
+<Source
+    language="bash"
+    dark
+    code={`pnpm run lint      # check only
+pnpm run lint:fix  # auto-fix`}
+/>
+
+Uses **ESLint** with a flat config stack: Airbnb, TypeScript-ESLint (`recommended-type-checked` + `stylistic-type-checked`), React hooks, Storybook, and Prettier.
+
+### Clean
+
+<Source language="bash" dark code="pnpm run clean" />
+
+Removes build artifacts (`lib/`, `lib-commonjs/`, `dist/`, `bin/`) in every package.
+
+---
+
+## Storybook
+
+Documentation is authored as MDX pages and rendered with **Storybook 10**.
+
+<Source
+    language="bash"
+    dark
+    code={`pnpm run storybook        # dev server on http://localhost:6006
+pnpm run build-storybook  # static build → storybook-static/`}
+/>
+
+- MDX files anywhere in the repo are picked up automatically (`../**/*.mdx`).
+- Stories files (`*.stories.ts`, `*.stories.tsx`) provide companion data for doc blocks like `<ArgTypes>`.
+
+---
+
+## Creating a New Package
+
+Use the Cantus CLI to scaffold a new workspace package from the built-in template:
+
+<Source language="bash" dark code="pnpm run new-package" />
+
+You will be prompted for a package name. The CLI will:
+
+1. Create `packages/<name>/` with `src/`, `vite.config.ts`, `tsconfig.json`, and `package.json`.
+2. Set the npm scope to `@cantus/<name>`.
+3. Pre-configure the Vite build with ESM + CJS + type declaration output.
+
+After scaffolding, run `pnpm install` to link the new package into the workspace.
+
+> See the **CLI** docs for more details on naming rules and what gets generated.
+
+---
+
+## CI Pipeline
+
+A **GitHub Actions** workflow (`.github/workflows/ci.yml`) runs on every pull request to `main`:
+
+1. **Install** — `pnpm install --frozen-lockfile`
+2. **Lint** — `pnpm run lint`
+3. **Build** — `pnpm run build`
+4. **Test** — `pnpm run test`
+
+Concurrent runs for the same branch are automatically cancelled.
+
+---
+
+## Editor Setup
+
+The repo ships VS Code settings in `.vscode/settings.json`:
+
+- **Formatter:** Prettier (via `esbenp.prettier-vscode`)
+- **Format on save:** enabled
+- **Auto-fix on save:** ESLint fixes + unused import removal
+- **Style:** double quotes, 4-space indent, 180-char print width, trailing commas everywhere

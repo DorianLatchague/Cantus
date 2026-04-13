@@ -8,6 +8,12 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        docs: {
+            toc: {
+                headingSelector: "h2, h3",
+                ignoreSelector: ".docs-story *, .skip-toc, .sbdocs-subtitle",
+            },
+        },
     },
 };
 
