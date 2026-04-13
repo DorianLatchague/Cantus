@@ -19,7 +19,7 @@ const compat = new FlatCompat({
 export default defineConfig(
     // Global ignores
     {
-        ignores: ["**/node_modules/**", "**/dist/**", "**/lib/**", "**/lib-commonjs/**", "**/bin/**"],
+        ignores: ["**/node_modules/**", "**/dist/**", "**/lib/**", "**/lib-commonjs/**", "**/bin/**", ".storybook/**"],
     },
 
     // Base ESLint recommended
@@ -71,6 +71,14 @@ export default defineConfig(
             "react/jsx-props-no-spreading": "off",
             "react/no-unstable-nested-components": ["error", { allowAsProps: true }],
             "react/require-default-props": "off",
+        },
+    },
+
+    // Config file overrides
+    {
+        files: ["**/*.config.ts", "**/*.config.mts"],
+        rules: {
+            "import/no-extraneous-dependencies": "off",
         },
     },
 

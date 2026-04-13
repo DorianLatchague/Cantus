@@ -21,6 +21,7 @@
     "main": "lib/index.js",
     "module": "lib/index.js",
     "name": "@cantus/template",
+    "dependencies": {},
     "peerDependencies": {},
     "scripts": {
         "build": "pnpm run clean && vite build",

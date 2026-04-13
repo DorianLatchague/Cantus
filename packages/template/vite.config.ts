@@ -5,9 +5,7 @@ import pkg from "./package.json" with { type: "json" };
 const external = [...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.peerDependencies ?? {})];
 
 export default defineConfig({
-    plugins: [
-        dts({ tsconfigPath: "./tsconfig.json", outDir: "dist" }),
-    ],
+    plugins: [dts({ tsconfigPath: "./tsconfig.json", outDir: "dist", exclude: ["**/*.test.ts", "**/*.spec.ts"] })],
     build: {
         sourcemap: true,
         minify: false,
@@ -19,18 +17,18 @@ export default defineConfig({
             external,
             output: [
                 {
-                    format: 'es',
-                    dir: 'lib',
+                    format: "es",
+                    dir: "lib",
                     preserveModules: true,
-                    preserveModulesRoot: 'src',
-                    entryFileNames: '[name].js',
+                    preserveModulesRoot: "src",
+                    entryFileNames: "[name].js",
                 },
                 {
-                    format: 'cjs',
-                    dir: 'lib-commonjs',
+                    format: "cjs",
+                    dir: "lib-commonjs",
                     preserveModules: true,
-                    preserveModulesRoot: 'src',
-                    entryFileNames: '[name].js',
+                    preserveModulesRoot: "src",
+                    entryFileNames: "[name].js",
                 },
             ],
         },

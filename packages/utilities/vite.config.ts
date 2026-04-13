@@ -5,7 +5,7 @@ import pkg from "./package.json" with { type: "json" };
 const external = [...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.peerDependencies ?? {})];
 
 export default defineConfig({
-    plugins: [dts({ tsconfigPath: "./tsconfig.json", outDir: "dist" })],
+    plugins: [dts({ tsconfigPath: "./tsconfig.json", outDir: "dist", exclude: ["**/*.test.ts", "**/*.spec.ts"] })],
     build: {
         sourcemap: true,
         minify: false,
