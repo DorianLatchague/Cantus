@@ -24,7 +24,7 @@
         "lib/"
     ],
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "lib/index.js",
     "module": "lib/index.js",
     "name": "@cantus/utilities",
