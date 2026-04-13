@@ -43,6 +43,7 @@
   "license": "ISC",
   "main": "index.js",
   "name": "@cantus/root",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "build": "pnpm -r run build",
     "build-storybook": "storybook build",
@@ -50,9 +51,9 @@
     "lint": "pnpm -r --no-sort --no-bail run lint",
     "lint:fix": "pnpm -r --no-sort --no-bail run lint:fix",
     "new-package": "cantus new package",
+    "prepare": "husky",
     "storybook": "storybook dev -p 6006",
-    "test": "pnpm -r --no-sort --no-bail run test",
-    "prepare": "husky"
+    "test": "pnpm -r --no-sort --no-bail run test"
   },
   "version": "1.0.0"
 }
