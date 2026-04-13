@@ -5,7 +5,7 @@
     "changelog": "@changesets/cli/changelog",
     "commit": false,
     "fixed": [],
-    "ignore": ["@cantus/template", "cli"],
+    "ignore": [],
     "linked": [],
     "updateInternalDependencies": "patch"
 }
