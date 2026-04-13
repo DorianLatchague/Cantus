@@ -9,3 +9,7 @@ bin/
 
 # tsc output
 tsconfig.tsbuildinfo
+
+#storybook
+debug-storybook.log
+storybook-static/
