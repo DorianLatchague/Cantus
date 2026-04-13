@@ -1553,7 +1553,7 @@ packages:
     engines: {node: '>=4'}
 
   axios@0.26.1:
-    resolution: {integrity: sha1-Ht5BxR/PUbu9b9Q2acqqTwSVqqk=, tarball: https://msazure.pkgs.visualstudio.com/One/_packaging/Unicorns-AzureUx/npm/registry/axios/-/axios-0.26.1.tgz}
+    resolution: {integrity: sha1-Ht5BxR/PUbu9b9Q2acqqTwSVqqk=}
 
   axobject-query@4.1.0:
     resolution: {integrity: sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ==}
