@@ -1,0 +1,123 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Utilities/Object" />
+
+# Object Utilities
+
+Type-safe helpers for deeply cloning and patching objects. These utilities are especially
+useful when updating nested state in React without mutation.
+
+All exports are available from `@cantus/utilities`.
+
+```ts
+import { patch } from "@cantus/utilities";
+import type { DeepPartial, DotNestedKeyof, DotNestedKeyofValue } from "@cantus/utilities";
+```
+
+---
+
+## `patch`
+
+Deep-clones an object and merges one or more partial patches into it.
+Arrays, Buffers, and TypedArrays are replaced wholesale rather than merged element-by-element.
+
+### Signature
+
+```ts
+patch<T extends object>(
+  originalObject: T,
+  ...patches: (DeepPartial<T> | ((originalObject: T) => DeepPartial<T>))[]
+): T;
+```
+
+### Parameters
+
+| Parameter        | Type                                                                  | Description                                           |
+| ---------------- | --------------------------------------------------------------------- | ----------------------------------------------------- |
+| `originalObject` | `T`                                                                   | The object to clone and patch.                        |
+| `...patches`     | `(DeepPartial<T> \| ((obj: T) => DeepPartial<T>))[]`                 | One or more partial updates. Can be objects or functions that receive the current state and return a partial. |
+
+### Example
+
+```ts
+interface Settings {
+  theme: { mode: "light" | "dark"; fontSize: number };
+  notifications: { email: boolean; sms: boolean };
+}
+
+const defaults: Settings = {
+  theme: { mode: "light", fontSize: 14 },
+  notifications: { email: true, sms: false },
+};
+
+// Static patch
+patch(defaults, { theme: { mode: "dark" } });
+// => { theme: { mode: "dark", fontSize: 14 }, notifications: { email: true, sms: false } }
+
+// Functional patch (receives the current accumulated state)
+patch(defaults, (current) => ({
+  theme: { fontSize: current.theme.fontSize + 2 },
+}));
+// => { theme: { mode: "light", fontSize: 16 }, notifications: { email: true, sms: false } }
+
+// Multiple patches applied in order
+patch(
+  defaults,
+  { theme: { mode: "dark" } },
+  { notifications: { sms: true } },
+);
+```
+
+> The original object is **never mutated**. A brand-new deep clone is returned.
+
+---
+
+## Type Helpers
+
+### `DeepPartial<T>`
+
+A recursive `Partial` where every nested property is optional.
+Arrays are kept as-is (not made partial element-by-element).
+
+```ts
+type DeepPartial<T> = T extends object
+  ? { [P in keyof T]?: T[P] extends unknown[] ? T[P] : DeepPartial<T[P]> }
+  : T;
+```
+
+---
+
+### `DotNestedKeyof<T>`
+
+A union of all dot-delimited key paths in `T`, useful with `lodash.get()`.
+
+```ts
+interface MyData {
+  id: string;
+  properties: {
+    title: string;
+    author: { name: string; date: Date };
+  };
+}
+
+type Keys = DotNestedKeyof<MyData>;
+// "id" | "properties" | "properties.title" | "properties.author"
+// | "properties.author.name" | "properties.author.date"
+```
+
+| Parameter | Description                                             |
+| --------- | ------------------------------------------------------- |
+| `T`       | The object type to extract key paths from.              |
+| `D`       | Maximum nesting depth (default `5`). Lower this if you encounter *"Type instantiation is excessively deep"* errors. |
+
+---
+
+### `DotNestedKeyofValue<T, V>`
+
+Like `DotNestedKeyof`, but only includes paths whose leaf value extends `V`.
+
+```ts
+type StringKeys = DotNestedKeyofValue<MyData, string>;
+// "id" | "properties.title" | "properties.author.name"
+// (excludes "properties.author.date" because Date does not extend string)
+```
