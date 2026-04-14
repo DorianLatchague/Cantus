@@ -1,5 +1,11 @@
 # @cantus/template
 
+## 0.0.3
+
+### Patch Changes
+
+- f98ca9f: Added repository to package.json and bugs
+
 ## 0.0.2
 
 ### Patch Changes
