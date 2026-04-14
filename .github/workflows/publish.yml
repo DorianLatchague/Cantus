@@ -20,13 +20,13 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v6
 
             - name: Install pnpm
               uses: pnpm/action-setup@v4
 
             - name: Setup Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v6
               with:
                   node-version: "24"
                   cache: pnpm
@@ -38,7 +38,6 @@ jobs:
               run: pnpm run build
 
             - name: Create Release PR or Publish
-              id: changesets
               uses: changesets/action@v1
               with:
                   publish: pnpm changeset publish
@@ -46,9 +45,3 @@ jobs:
                   commit: "chore: version packages"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Convert PR to draft
-              if: steps.changesets.outputs.pullRequestNumber
-              run: gh pr ready --undo ${{ steps.changesets.outputs.pullRequestNumber }}
-              env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
