@@ -1,6 +1,6 @@
 {
   "author": "DorianLatchague",
-  "description": "",
+  "description": "A set of npm modules created to simplify common React tasks",
   "devDependencies": {
     "@changesets/cli": "^2.30.0",
     "@eslint/compat": "^2.0.5",
@@ -38,7 +38,7 @@
     "node": ">=24.0.0",
     "pnpm": ">=10.0.0"
   },
-  "keywords": [],
+  "keywords": ["react", "typescript", "utilities"],
   "license": "MIT",
   "main": "index.js",
   "name": "@cantus/root",

@@ -12,12 +12,12 @@
         "lodash": "4.17.21",
         "yargs": "^17.7.2"
     },
-    "description": "",
+    "description": "Internal CLI tool for the Cantus monorepo",
     "files": [
         "*.md",
         "bin/"
     ],
-    "keywords": [],
+    "keywords": ["cli", "scaffolding"],
     "license": "ISC",
     "name": "cli",
     "homepage": "https://dorianlatchague.github.io/Cantus/",
