@@ -44,6 +44,14 @@
   "name": "@cantus/root",
   "packageManager": "pnpm@10.33.0",
   "private": true,
+  "homepage": "https://dorianlatchague.github.io/Cantus/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DorianLatchague/Cantus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DorianLatchague/Cantus/issues"
+  },
   "scripts": {
     "build": "pnpm -r run build",
     "build-storybook": "storybook build",

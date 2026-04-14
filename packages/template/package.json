@@ -21,6 +21,15 @@
     "main": "lib/index.js",
     "module": "lib/index.js",
     "name": "@cantus/template",
+    "homepage": "https://dorianlatchague.github.io/Cantus/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DorianLatchague/Cantus.git",
+        "directory": "packages/template"
+    },
+    "bugs": {
+        "url": "https://github.com/DorianLatchague/Cantus/issues"
+    },
     "dependencies": {},
     "peerDependencies": {},
     "scripts": {

@@ -20,6 +20,15 @@
     "keywords": [],
     "license": "ISC",
     "name": "cli",
+    "homepage": "https://dorianlatchague.github.io/Cantus/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DorianLatchague/Cantus.git",
+        "directory": "cli"
+    },
+    "bugs": {
+        "url": "https://github.com/DorianLatchague/Cantus/issues"
+    },
     "private": true,
     "scripts": {
         "build": "vite build",

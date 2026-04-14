@@ -38,6 +38,7 @@ jobs:
               run: pnpm run build
 
             - name: Create Release PR or Publish
+              id: changesets
               uses: changesets/action@v1
               with:
                   publish: pnpm changeset publish
@@ -45,4 +46,9 @@ jobs:
                   commit: "chore: version packages"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_CONFIG_PROVENANCE: true
+
+            - name: Convert PR to draft
+              if: steps.changesets.outputs.pullRequestNumber
+              run: gh pr ready --undo ${{ steps.changesets.outputs.pullRequestNumber }}
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
