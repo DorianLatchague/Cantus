@@ -28,6 +28,15 @@
     "main": "lib/index.js",
     "module": "lib/index.js",
     "name": "@cantus/utilities",
+    "homepage": "https://dorianlatchague.github.io/Cantus/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DorianLatchague/Cantus.git",
+        "directory": "packages/utilities"
+    },
+    "bugs": {
+        "url": "https://github.com/DorianLatchague/Cantus/issues"
+    },
     "peerDependencies": {},
     "scripts": {
         "build": "pnpm run clean && vite build",
