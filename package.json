@@ -24,7 +24,6 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-storybook": "^10.3.5",
     "globals": "17.4.0",
-    "husky": "^9.1.7",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "storybook": "10.3.5",
@@ -52,7 +51,6 @@
     "lint": "pnpm -r --no-sort --no-bail run lint",
     "lint:fix": "pnpm -r --no-sort --no-bail run lint:fix",
     "new-package": "cantus new package",
-    "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "test": "pnpm -r --no-sort --no-bail run test"
   },
