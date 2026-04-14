@@ -23,7 +23,14 @@
         "lib-commonjs/",
         "lib/"
     ],
-"keywords": ["react", "typescript", "utilities", "object", "deep-partial", "immutable"],
+    "keywords": [
+        "react",
+        "typescript",
+        "utilities",
+        "object",
+        "deep-partial",
+        "immutable"
+    ],
     "license": "MIT",
     "main": "lib/index.js",
     "module": "lib/index.js",
@@ -46,5 +53,5 @@
         "test": "vitest run --passWithNoTests"
     },
     "types": "dist/index.d.ts",
-    "version": "0.0.3"
+    "version": "0.0.4"
 }
