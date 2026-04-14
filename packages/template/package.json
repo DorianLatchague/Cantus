@@ -1,6 +1,6 @@
 {
     "author": "DorianLatchague",
-    "description": "",
+    "description": "Starter template for new Cantus packages",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
@@ -16,7 +16,7 @@
         "lib-commonjs/",
         "lib/"
     ],
-    "keywords": [],
+    "keywords": ["template"],
     "license": "MIT",
     "main": "lib/index.js",
     "module": "lib/index.js",
